@@ -82,6 +82,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "# ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.moveCursor(selectedStart + 2)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// Moves the cursor position after the inserted characters
@@ -90,6 +91,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "## ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.moveCursor(selectedStart + 3)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// Moves the cursor position after the inserted characters
@@ -98,6 +100,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "### ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.moveCursor(selectedStart + 4)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// If text is selected, surrounds the selected text with the bold tags
@@ -109,6 +112,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "**", at: self.text.index(self.text.startIndex, offsetBy: selectedEnd + 2))
     self.moveCursor(selectedEnd + 2)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// If text is selected, surrounds the selected text with the italic tags
@@ -120,6 +124,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "*", at: self.text.index(self.text.startIndex, offsetBy: selectedEnd + 1))
     self.moveCursor(selectedEnd + 1)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// Adds 1 leading line break
@@ -128,6 +133,7 @@ extension SwiftDown {
     self.text.insert(contentsOf: "\n- ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.moveCursor(selectedStart + 3)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// Adds 1 leading line break
@@ -136,12 +142,14 @@ extension SwiftDown {
     self.text.insert(contentsOf: "\n1. ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.moveCursor(selectedStart + 3)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   @objc private func blockQuoteAction() {
     let selectedStart = self.selectedStart
     self.text.insert(contentsOf: "> ", at: self.text.index(self.text.startIndex, offsetBy: selectedStart))
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// If text is selected, it is checked if it contains a link
@@ -173,6 +181,7 @@ extension SwiftDown {
       self.moveCursor(selectedEnd + 3)
     }
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 
   /// If text is selected, moves the selected text inside the code block
@@ -191,6 +200,7 @@ extension SwiftDown {
     )
     self.moveCursor(selectedEnd + 4)
     self.highlighter?.applyStyles()
+    self.delegate?.textViewDidChange?(self)
   }
 }
 
