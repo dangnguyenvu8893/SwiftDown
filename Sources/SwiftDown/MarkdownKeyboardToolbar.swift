@@ -29,12 +29,12 @@ extension SwiftDown {
         h2Button,
         h3Button,
         boldButton,
-        italicizeButton,
-        unorderedListButton,
-        orderedListButton,
-        blockQuoteButton,
-        linkButton,
-        codeBlockButton
+        // italicizeButton, Remove follow ticket: https://astralertechnology.atlassian.net/browse/NT-268
+        // unorderedListButton,
+        // orderedListButton,
+        // blockQuoteButton,
+        // linkButton,
+        // codeBlockButton
       ],
       animated: false
     )
